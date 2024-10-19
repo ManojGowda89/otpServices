@@ -133,7 +133,7 @@ app.get('/verifyotp', basicAuth, (req, res) => {
   }
 
   const result = verifyOtp(email, otp);
-  res.status(result.valid ? 200 : 400).json({ message: result.message });
+  res.status(result.valid ? 200 : 400).json({ valid:result.valid, message: result.message });
 });
 
 app.post('/sendcustomemail', basicAuth, async (req, res) => {
