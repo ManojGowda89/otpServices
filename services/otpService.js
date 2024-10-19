@@ -14,13 +14,13 @@ const verifyOtp = (email, otp) => {
   if (storedOtpData && storedOtpData.otp === otp) {
     if (Date.now() > storedOtpData.expiry) {
       delete otps[email];
-      return { valid: false, message: 'OTP expired' };
+      return { valid: false, message: 'otp_expired' };
     }
 
     delete otps[email];
-    return { valid: true, message: 'OTP verified successfully' };
+    return { valid: true, message: 'otp_verified_successfully' };
   } else {
-    return { valid: false, message: 'Invalid OTP' };
+    return { valid: false, message: 'Invalid_otp' };
   }
 };
 

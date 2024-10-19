@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require("mb64-connect")
-const mblogs = require("mb64-logs");
 const User = require('./models/User');
 const basicAuth = require('./middleware/basicAuth');
 const { generateOtp, verifyOtp } = require('./services/otpService');
@@ -14,7 +13,6 @@ dotenv.config();
 
 const app = express();
 const port = 3000;
-mblogs(app);
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
